@@ -1,0 +1,212 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: users
+  fields:
+    - name: created_at
+      type: timestamp
+    - name: email
+      type: varchar!
+    - name: first_name
+      type: varchar!
+    - name: last_name
+      type: varchar!
+    - name: password
+      type: varchar!
+    - name: user_id
+      type: int4!
+  graphql:
+    typeName: users
+    inputTypeName: users_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: users
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: users
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - created_at
+          - email
+          - first_name
+          - last_name
+          - password
+          - user_id
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: users_bool_exp
+  operand:
+    object:
+      type: users
+      comparableFields:
+        - fieldName: created_at
+          booleanExpressionType: timestamp_bool_exp
+        - fieldName: email
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: first_name
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: last_name
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: password
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: user_id
+          booleanExpressionType: int4_bool_exp
+      comparableRelationships:
+        - relationshipName: orders
+        - relationshipName: reviews
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: users_bool_exp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: users_agg_exp
+  operand:
+    object:
+      aggregatedType: users
+      aggregatableFields:
+        - fieldName: created_at
+          aggregateExpression: timestamp_agg_exp
+        - fieldName: email
+          aggregateExpression: varchar_agg_exp
+        - fieldName: first_name
+          aggregateExpression: varchar_agg_exp
+        - fieldName: last_name
+          aggregateExpression: varchar_agg_exp
+        - fieldName: password
+          aggregateExpression: varchar_agg_exp
+        - fieldName: user_id
+          aggregateExpression: int4_agg_exp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: users_agg_exp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: users_order_by_exp
+  operand:
+    object:
+      orderedType: users
+      orderableFields:
+        - fieldName: created_at
+          orderByExpression: timestamp_order_by_exp
+        - fieldName: email
+          orderByExpression: varchar_order_by_exp
+        - fieldName: first_name
+          orderByExpression: varchar_order_by_exp
+        - fieldName: last_name
+          orderByExpression: varchar_order_by_exp
+        - fieldName: password
+          orderByExpression: varchar_order_by_exp
+        - fieldName: user_id
+          orderByExpression: int4_order_by_exp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: users_order_by_exp
+
+---
+kind: Model
+version: v2
+definition:
+  name: users
+  objectType: users
+  source:
+    dataConnectorName: mypostgres
+    collection: users
+  filterExpressionType: users_bool_exp
+  aggregateExpression: users_agg_exp
+  orderByExpression: users_order_by_exp
+  graphql:
+    selectMany:
+      queryRootField: users
+      subscription:
+        rootField: users
+    selectUniques:
+      - queryRootField: users_by_email
+        uniqueIdentifier:
+          - email
+        subscription:
+          rootField: users_by_email
+      - queryRootField: users_by_user_id
+        uniqueIdentifier:
+          - user_id
+        subscription:
+          rootField: users_by_user_id
+    filterInputTypeName: users_filter_input
+    aggregate:
+      queryRootField: users_aggregate
+      subscription:
+        rootField: users_aggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: users
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: orders
+  sourceType: users
+  target:
+    model:
+      name: orders
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: orders_agg_exp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: user_id
+      target:
+        modelField:
+          - fieldName: user_id
+  graphql:
+    aggregateFieldName: orders_aggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: reviews
+  sourceType: users
+  target:
+    model:
+      name: reviews
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: reviews_agg_exp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: user_id
+      target:
+        modelField:
+          - fieldName: user_id
+  graphql:
+    aggregateFieldName: reviews_aggregate
+

@@ -1,0 +1,192 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: orderitems
+  fields:
+    - name: order_id
+      type: int4!
+    - name: order_item_id
+      type: int4!
+    - name: product_id
+      type: int4!
+    - name: quantity
+      type: int4!
+    - name: unit_price
+      type: numeric!
+  graphql:
+    typeName: orderitems
+    inputTypeName: orderitems_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: orderitems
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: orderitems
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - order_id
+          - order_item_id
+          - product_id
+          - quantity
+          - unit_price
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: orderitems_bool_exp
+  operand:
+    object:
+      type: orderitems
+      comparableFields:
+        - fieldName: order_id
+          booleanExpressionType: int4_bool_exp
+        - fieldName: order_item_id
+          booleanExpressionType: int4_bool_exp
+        - fieldName: product_id
+          booleanExpressionType: int4_bool_exp
+        - fieldName: quantity
+          booleanExpressionType: int4_bool_exp
+        - fieldName: unit_price
+          booleanExpressionType: numeric_bool_exp
+      comparableRelationships:
+        - relationshipName: order
+        - relationshipName: product
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: orderitems_bool_exp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: orderitems_agg_exp
+  operand:
+    object:
+      aggregatedType: orderitems
+      aggregatableFields:
+        - fieldName: order_id
+          aggregateExpression: int4_agg_exp
+        - fieldName: order_item_id
+          aggregateExpression: int4_agg_exp
+        - fieldName: product_id
+          aggregateExpression: int4_agg_exp
+        - fieldName: quantity
+          aggregateExpression: int4_agg_exp
+        - fieldName: unit_price
+          aggregateExpression: numeric_agg_exp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: orderitems_agg_exp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: orderitems_order_by_exp
+  operand:
+    object:
+      orderedType: orderitems
+      orderableFields:
+        - fieldName: order_id
+          orderByExpression: int4_order_by_exp
+        - fieldName: order_item_id
+          orderByExpression: int4_order_by_exp
+        - fieldName: product_id
+          orderByExpression: int4_order_by_exp
+        - fieldName: quantity
+          orderByExpression: int4_order_by_exp
+        - fieldName: unit_price
+          orderByExpression: numeric_order_by_exp
+      orderableRelationships:
+        - relationshipName: order
+        - relationshipName: product
+  graphql:
+    expressionTypeName: orderitems_order_by_exp
+
+---
+kind: Model
+version: v2
+definition:
+  name: orderitems
+  objectType: orderitems
+  source:
+    dataConnectorName: mypostgres
+    collection: orderitems
+  filterExpressionType: orderitems_bool_exp
+  aggregateExpression: orderitems_agg_exp
+  orderByExpression: orderitems_order_by_exp
+  graphql:
+    selectMany:
+      queryRootField: orderitems
+      subscription:
+        rootField: orderitems
+    selectUniques:
+      - queryRootField: orderitems_by_order_item_id
+        uniqueIdentifier:
+          - order_item_id
+        subscription:
+          rootField: orderitems_by_order_item_id
+    filterInputTypeName: orderitems_filter_input
+    aggregate:
+      queryRootField: orderitems_aggregate
+      subscription:
+        rootField: orderitems_aggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: orderitems
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: order
+  sourceType: orderitems
+  target:
+    model:
+      name: orders
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: order_id
+      target:
+        modelField:
+          - fieldName: order_id
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: product
+  sourceType: orderitems
+  target:
+    model:
+      name: products
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: product_id
+      target:
+        modelField:
+          - fieldName: product_id
+

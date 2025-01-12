@@ -1,0 +1,315 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_products_category
+  description: Update the 'category' column in the 'products' collection
+  fields:
+    - name: _set
+      type: varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_products_category
+    inputTypeName: update_column_products_category_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_products_category
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_products_category
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_products_created_at
+  description: Update the 'created_at' column in the 'products' collection
+  fields:
+    - name: _set
+      type: timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_products_created_at
+    inputTypeName: update_column_products_created_at_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_products_created_at
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_products_created_at
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_products_description
+  description: Update the 'description' column in the 'products' collection
+  fields:
+    - name: _set
+      type: text
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_products_description
+    inputTypeName: update_column_products_description_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_products_description
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_products_description
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_products_price
+  description: Update the 'price' column in the 'products' collection
+  fields:
+    - name: _set
+      type: numeric!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_products_price
+    inputTypeName: update_column_products_price_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_products_price
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_products_price
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_products_product_id
+  description: Update the 'product_id' column in the 'products' collection
+  fields:
+    - name: _set
+      type: int4!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_products_product_id
+    inputTypeName: update_column_products_product_id_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_products_product_id
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_products_product_id
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_products_product_name
+  description: Update the 'product_name' column in the 'products' collection
+  fields:
+    - name: _set
+      type: varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_products_product_name
+    inputTypeName: update_column_products_product_name_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_products_product_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_products_product_name
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_products_stock_quantity
+  description: Update the 'stock_quantity' column in the 'products' collection
+  fields:
+    - name: _set
+      type: int4
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_products_stock_quantity
+    inputTypeName: update_column_products_stock_quantity_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_products_stock_quantity
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_products_stock_quantity
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_products_by_product_id_update_columns
+  description: Update the columns of the 'products' collection
+  fields:
+    - name: category
+      type: update_column_products_category
+      description: Update the 'category' column in the 'products' collection.
+    - name: created_at
+      type: update_column_products_created_at
+      description: Update the 'created_at' column in the 'products' collection.
+    - name: description
+      type: update_column_products_description
+      description: Update the 'description' column in the 'products' collection.
+    - name: price
+      type: update_column_products_price
+      description: Update the 'price' column in the 'products' collection.
+    - name: product_id
+      type: update_column_products_product_id
+      description: Update the 'product_id' column in the 'products' collection.
+    - name: product_name
+      type: update_column_products_product_name
+      description: Update the 'product_name' column in the 'products' collection.
+    - name: stock_quantity
+      type: update_column_products_stock_quantity
+      description: Update the 'stock_quantity' column in the 'products' collection.
+  graphql:
+    typeName: update_products_by_product_id_update_columns
+    inputTypeName: update_products_by_product_id_update_columns_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_products_by_product_id_update_columns
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_products_by_product_id_update_columns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - category
+          - created_at
+          - description
+          - price
+          - product_id
+          - product_name
+          - stock_quantity
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_products_by_product_id_response
+  description: Responses from the 'update_products_by_product_id' procedure
+  fields:
+    - name: affected_rows
+      type: int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[products!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: update_products_by_product_id_response
+    inputTypeName: update_products_by_product_id_response_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_products_by_product_id_response
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_products_by_product_id_response
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affected_rows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: update_products_by_product_id
+  outputType: update_products_by_product_id_response!
+  arguments:
+    - name: key_product_id
+      type: int4!
+    - name: post_check
+      type: products_bool_exp
+      description: Update permission post-condition predicate over the 'products' collection
+    - name: pre_check
+      type: products_bool_exp
+      description: Update permission pre-condition predicate over the 'products' collection
+    - name: update_columns
+      type: update_products_by_product_id_update_columns!
+  source:
+    dataConnectorName: mypostgres
+    dataConnectorCommand:
+      procedure: update_products_by_product_id
+  graphql:
+    rootFieldName: update_products_by_product_id
+    rootFieldKind: Mutation
+  description: Update any row on the 'products' collection using the 'product_id' key
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: update_products_by_product_id
+  permissions:
+    - role: admin
+      allowExecution: true
+

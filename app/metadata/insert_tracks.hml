@@ -1,0 +1,142 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: insert_tracks_object
+  fields:
+    - name: acousticness
+      type: float8!
+    - name: album_name
+      type: text!
+    - name: artists
+      type: text!
+    - name: danceability
+      type: float8!
+    - name: duration_ms
+      type: int4!
+    - name: energy
+      type: float8!
+    - name: explicit
+      type: bool!
+    - name: instrumentalness
+      type: float8!
+    - name: liveness
+      type: float8!
+    - name: loudness
+      type: float8!
+    - name: mode
+      type: int4!
+    - name: popularity
+      type: int4!
+    - name: speechiness
+      type: float8!
+    - name: tempo
+      type: float8!
+    - name: time_signature
+      type: int4!
+    - name: track_genre
+      type: varchar!
+    - name: track_id
+      type: varchar!
+    - name: track_name
+      type: text!
+    - name: valence
+      type: float8!
+  graphql:
+    typeName: insert_tracks_object
+    inputTypeName: insert_tracks_object_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: insert_tracks_object
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: insert_tracks_object
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - acousticness
+          - album_name
+          - artists
+          - danceability
+          - duration_ms
+          - energy
+          - explicit
+          - instrumentalness
+          - liveness
+          - loudness
+          - mode
+          - popularity
+          - speechiness
+          - tempo
+          - time_signature
+          - track_genre
+          - track_id
+          - track_name
+          - valence
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: insert_tracks_response
+  description: Responses from the 'insert_tracks' procedure
+  fields:
+    - name: affected_rows
+      type: int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[tracks!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: insert_tracks_response
+    inputTypeName: insert_tracks_response_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: insert_tracks_response
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: insert_tracks_response
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affected_rows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: insert_tracks
+  outputType: insert_tracks_response!
+  arguments:
+    - name: objects
+      type: "[insert_tracks_object!]!"
+    - name: post_check
+      type: tracks_bool_exp
+      description: Insert permission predicate over the 'tracks' collection
+  source:
+    dataConnectorName: mypostgres
+    dataConnectorCommand:
+      procedure: insert_tracks
+  graphql:
+    rootFieldName: insert_tracks
+    rootFieldKind: Mutation
+  description: Insert into the tracks table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: insert_tracks
+  permissions:
+    - role: admin
+      allowExecution: true
+

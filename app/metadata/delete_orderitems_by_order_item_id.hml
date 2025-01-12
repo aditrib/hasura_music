@@ -1,0 +1,62 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: delete_orderitems_by_order_item_id_response
+  description: Responses from the 'delete_orderitems_by_order_item_id' procedure
+  fields:
+    - name: affected_rows
+      type: int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[orderitems!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: delete_orderitems_by_order_item_id_response
+    inputTypeName: delete_orderitems_by_order_item_id_response_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: delete_orderitems_by_order_item_id_response
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: delete_orderitems_by_order_item_id_response
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affected_rows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: delete_orderitems_by_order_item_id
+  outputType: delete_orderitems_by_order_item_id_response!
+  arguments:
+    - name: key_order_item_id
+      type: int4!
+    - name: pre_check
+      type: orderitems_bool_exp
+      description: Delete permission predicate over the 'orderitems' collection
+  source:
+    dataConnectorName: mypostgres
+    dataConnectorCommand:
+      procedure: delete_orderitems_by_order_item_id
+  graphql:
+    rootFieldName: delete_orderitems_by_order_item_id
+    rootFieldKind: Mutation
+  description: Delete any row on the 'orderitems' collection using the 'order_item_id' key
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: delete_orderitems_by_order_item_id
+  permissions:
+    - role: admin
+      allowExecution: true
+

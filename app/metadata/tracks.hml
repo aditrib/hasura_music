@@ -1,0 +1,278 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: tracks
+  fields:
+    - name: acousticness
+      type: float8!
+    - name: album_name
+      type: text!
+    - name: artists
+      type: text!
+    - name: danceability
+      type: float8!
+    - name: duration_ms
+      type: int4!
+    - name: energy
+      type: float8!
+    - name: explicit
+      type: bool!
+    - name: instrumentalness
+      type: float8!
+    - name: liveness
+      type: float8!
+    - name: loudness
+      type: float8!
+    - name: mode
+      type: int4!
+    - name: popularity
+      type: int4!
+    - name: speechiness
+      type: float8!
+    - name: tempo
+      type: float8!
+    - name: time_signature
+      type: int4!
+    - name: track_genre
+      type: varchar!
+    - name: track_id
+      type: varchar!
+    - name: track_name
+      type: text!
+    - name: valence
+      type: float8!
+  graphql:
+    typeName: tracks
+    inputTypeName: tracks_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: tracks
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: tracks
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - acousticness
+          - album_name
+          - artists
+          - danceability
+          - duration_ms
+          - energy
+          - explicit
+          - instrumentalness
+          - liveness
+          - loudness
+          - mode
+          - popularity
+          - speechiness
+          - tempo
+          - time_signature
+          - track_genre
+          - track_id
+          - track_name
+          - valence
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: tracks_bool_exp
+  operand:
+    object:
+      type: tracks
+      comparableFields:
+        - fieldName: acousticness
+          booleanExpressionType: float8_bool_exp
+        - fieldName: album_name
+          booleanExpressionType: text_bool_exp
+        - fieldName: artists
+          booleanExpressionType: text_bool_exp
+        - fieldName: danceability
+          booleanExpressionType: float8_bool_exp
+        - fieldName: duration_ms
+          booleanExpressionType: int4_bool_exp
+        - fieldName: energy
+          booleanExpressionType: float8_bool_exp
+        - fieldName: explicit
+          booleanExpressionType: bool_bool_exp
+        - fieldName: instrumentalness
+          booleanExpressionType: float8_bool_exp
+        - fieldName: liveness
+          booleanExpressionType: float8_bool_exp
+        - fieldName: loudness
+          booleanExpressionType: float8_bool_exp
+        - fieldName: mode
+          booleanExpressionType: int4_bool_exp
+        - fieldName: popularity
+          booleanExpressionType: int4_bool_exp
+        - fieldName: speechiness
+          booleanExpressionType: float8_bool_exp
+        - fieldName: tempo
+          booleanExpressionType: float8_bool_exp
+        - fieldName: time_signature
+          booleanExpressionType: int4_bool_exp
+        - fieldName: track_genre
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: track_id
+          booleanExpressionType: varchar_bool_exp
+        - fieldName: track_name
+          booleanExpressionType: text_bool_exp
+        - fieldName: valence
+          booleanExpressionType: float8_bool_exp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: tracks_bool_exp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: tracks_agg_exp
+  operand:
+    object:
+      aggregatedType: tracks
+      aggregatableFields:
+        - fieldName: acousticness
+          aggregateExpression: float8_agg_exp
+        - fieldName: album_name
+          aggregateExpression: text_agg_exp
+        - fieldName: artists
+          aggregateExpression: text_agg_exp
+        - fieldName: danceability
+          aggregateExpression: float8_agg_exp
+        - fieldName: duration_ms
+          aggregateExpression: int4_agg_exp
+        - fieldName: energy
+          aggregateExpression: float8_agg_exp
+        - fieldName: explicit
+          aggregateExpression: bool_agg_exp
+        - fieldName: instrumentalness
+          aggregateExpression: float8_agg_exp
+        - fieldName: liveness
+          aggregateExpression: float8_agg_exp
+        - fieldName: loudness
+          aggregateExpression: float8_agg_exp
+        - fieldName: mode
+          aggregateExpression: int4_agg_exp
+        - fieldName: popularity
+          aggregateExpression: int4_agg_exp
+        - fieldName: speechiness
+          aggregateExpression: float8_agg_exp
+        - fieldName: tempo
+          aggregateExpression: float8_agg_exp
+        - fieldName: time_signature
+          aggregateExpression: int4_agg_exp
+        - fieldName: track_genre
+          aggregateExpression: varchar_agg_exp
+        - fieldName: track_id
+          aggregateExpression: varchar_agg_exp
+        - fieldName: track_name
+          aggregateExpression: text_agg_exp
+        - fieldName: valence
+          aggregateExpression: float8_agg_exp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: tracks_agg_exp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: tracks_order_by_exp
+  operand:
+    object:
+      orderedType: tracks
+      orderableFields:
+        - fieldName: acousticness
+          orderByExpression: float8_order_by_exp
+        - fieldName: album_name
+          orderByExpression: text_order_by_exp
+        - fieldName: artists
+          orderByExpression: text_order_by_exp
+        - fieldName: danceability
+          orderByExpression: float8_order_by_exp
+        - fieldName: duration_ms
+          orderByExpression: int4_order_by_exp
+        - fieldName: energy
+          orderByExpression: float8_order_by_exp
+        - fieldName: explicit
+          orderByExpression: bool_order_by_exp
+        - fieldName: instrumentalness
+          orderByExpression: float8_order_by_exp
+        - fieldName: liveness
+          orderByExpression: float8_order_by_exp
+        - fieldName: loudness
+          orderByExpression: float8_order_by_exp
+        - fieldName: mode
+          orderByExpression: int4_order_by_exp
+        - fieldName: popularity
+          orderByExpression: int4_order_by_exp
+        - fieldName: speechiness
+          orderByExpression: float8_order_by_exp
+        - fieldName: tempo
+          orderByExpression: float8_order_by_exp
+        - fieldName: time_signature
+          orderByExpression: int4_order_by_exp
+        - fieldName: track_genre
+          orderByExpression: varchar_order_by_exp
+        - fieldName: track_id
+          orderByExpression: varchar_order_by_exp
+        - fieldName: track_name
+          orderByExpression: text_order_by_exp
+        - fieldName: valence
+          orderByExpression: float8_order_by_exp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: tracks_order_by_exp
+
+---
+kind: Model
+version: v2
+definition:
+  name: tracks
+  objectType: tracks
+  source:
+    dataConnectorName: mypostgres
+    collection: tracks
+  filterExpressionType: tracks_bool_exp
+  aggregateExpression: tracks_agg_exp
+  orderByExpression: tracks_order_by_exp
+  graphql:
+    selectMany:
+      queryRootField: tracks
+      subscription:
+        rootField: tracks
+    selectUniques:
+      - queryRootField: tracks_by_track_id
+        uniqueIdentifier:
+          - track_id
+        subscription:
+          rootField: tracks_by_track_id
+    filterInputTypeName: tracks_filter_input
+    aggregate:
+      queryRootField: tracks_aggregate
+      subscription:
+        rootField: tracks_aggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: tracks
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

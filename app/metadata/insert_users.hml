@@ -1,0 +1,103 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: insert_users_object
+  fields:
+    - name: created_at
+      type: timestamp
+    - name: email
+      type: varchar!
+    - name: first_name
+      type: varchar!
+    - name: last_name
+      type: varchar!
+    - name: password
+      type: varchar!
+    - name: user_id
+      type: int4
+  graphql:
+    typeName: insert_users_object
+    inputTypeName: insert_users_object_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: insert_users_object
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: insert_users_object
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - created_at
+          - email
+          - first_name
+          - last_name
+          - password
+          - user_id
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: insert_users_response
+  description: Responses from the 'insert_users' procedure
+  fields:
+    - name: affected_rows
+      type: int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[users!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: insert_users_response
+    inputTypeName: insert_users_response_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: insert_users_response
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: insert_users_response
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affected_rows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: insert_users
+  outputType: insert_users_response!
+  arguments:
+    - name: objects
+      type: "[insert_users_object!]!"
+    - name: post_check
+      type: users_bool_exp
+      description: Insert permission predicate over the 'users' collection
+  source:
+    dataConnectorName: mypostgres
+    dataConnectorCommand:
+      procedure: insert_users
+  graphql:
+    rootFieldName: insert_users
+    rootFieldKind: Mutation
+  description: Insert into the users table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: insert_users
+  permissions:
+    - role: admin
+      allowExecution: true
+

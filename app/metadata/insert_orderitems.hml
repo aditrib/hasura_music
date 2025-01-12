@@ -1,0 +1,100 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: insert_orderitems_object
+  fields:
+    - name: order_id
+      type: int4!
+    - name: order_item_id
+      type: int4
+    - name: product_id
+      type: int4!
+    - name: quantity
+      type: int4!
+    - name: unit_price
+      type: numeric!
+  graphql:
+    typeName: insert_orderitems_object
+    inputTypeName: insert_orderitems_object_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: insert_orderitems_object
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: insert_orderitems_object
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - order_id
+          - order_item_id
+          - product_id
+          - quantity
+          - unit_price
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: insert_orderitems_response
+  description: Responses from the 'insert_orderitems' procedure
+  fields:
+    - name: affected_rows
+      type: int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[orderitems!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: insert_orderitems_response
+    inputTypeName: insert_orderitems_response_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: insert_orderitems_response
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: insert_orderitems_response
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affected_rows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: insert_orderitems
+  outputType: insert_orderitems_response!
+  arguments:
+    - name: objects
+      type: "[insert_orderitems_object!]!"
+    - name: post_check
+      type: orderitems_bool_exp
+      description: Insert permission predicate over the 'orderitems' collection
+  source:
+    dataConnectorName: mypostgres
+    dataConnectorCommand:
+      procedure: insert_orderitems
+  graphql:
+    rootFieldName: insert_orderitems
+    rootFieldKind: Mutation
+  description: Insert into the orderitems table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: insert_orderitems
+  permissions:
+    - role: admin
+      allowExecution: true
+

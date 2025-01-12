@@ -1,0 +1,62 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: delete_tracks_by_track_id_response
+  description: Responses from the 'delete_tracks_by_track_id' procedure
+  fields:
+    - name: affected_rows
+      type: int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[tracks!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: delete_tracks_by_track_id_response
+    inputTypeName: delete_tracks_by_track_id_response_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: delete_tracks_by_track_id_response
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: delete_tracks_by_track_id_response
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affected_rows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: delete_tracks_by_track_id
+  outputType: delete_tracks_by_track_id_response!
+  arguments:
+    - name: key_track_id
+      type: varchar!
+    - name: pre_check
+      type: tracks_bool_exp
+      description: Delete permission predicate over the 'tracks' collection
+  source:
+    dataConnectorName: mypostgres
+    dataConnectorCommand:
+      procedure: delete_tracks_by_track_id
+  graphql:
+    rootFieldName: delete_tracks_by_track_id
+    rootFieldKind: Mutation
+  description: Delete any row on the 'tracks' collection using the 'track_id' key
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: delete_tracks_by_track_id
+  permissions:
+    - role: admin
+      allowExecution: true
+

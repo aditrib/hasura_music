@@ -1,0 +1,315 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_reviews_comment
+  description: Update the 'comment' column in the 'reviews' collection
+  fields:
+    - name: _set
+      type: text
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_reviews_comment
+    inputTypeName: update_column_reviews_comment_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_reviews_comment
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_reviews_comment
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_reviews_embedding
+  description: Update the 'embedding' column in the 'reviews' collection
+  fields:
+    - name: _set
+      type: vector
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_reviews_embedding
+    inputTypeName: update_column_reviews_embedding_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_reviews_embedding
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_reviews_embedding
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_reviews_product_id
+  description: Update the 'product_id' column in the 'reviews' collection
+  fields:
+    - name: _set
+      type: int4!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_reviews_product_id
+    inputTypeName: update_column_reviews_product_id_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_reviews_product_id
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_reviews_product_id
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_reviews_rating
+  description: Update the 'rating' column in the 'reviews' collection
+  fields:
+    - name: _set
+      type: int4!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_reviews_rating
+    inputTypeName: update_column_reviews_rating_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_reviews_rating
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_reviews_rating
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_reviews_review_date
+  description: Update the 'review_date' column in the 'reviews' collection
+  fields:
+    - name: _set
+      type: timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_reviews_review_date
+    inputTypeName: update_column_reviews_review_date_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_reviews_review_date
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_reviews_review_date
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_reviews_review_id
+  description: Update the 'review_id' column in the 'reviews' collection
+  fields:
+    - name: _set
+      type: int4!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_reviews_review_id
+    inputTypeName: update_column_reviews_review_id_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_reviews_review_id
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_reviews_review_id
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_reviews_user_id
+  description: Update the 'user_id' column in the 'reviews' collection
+  fields:
+    - name: _set
+      type: int4!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_reviews_user_id
+    inputTypeName: update_column_reviews_user_id_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_reviews_user_id
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_reviews_user_id
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_reviews_by_review_id_update_columns
+  description: Update the columns of the 'reviews' collection
+  fields:
+    - name: comment
+      type: update_column_reviews_comment
+      description: Update the 'comment' column in the 'reviews' collection.
+    - name: embedding
+      type: update_column_reviews_embedding
+      description: Update the 'embedding' column in the 'reviews' collection.
+    - name: product_id
+      type: update_column_reviews_product_id
+      description: Update the 'product_id' column in the 'reviews' collection.
+    - name: rating
+      type: update_column_reviews_rating
+      description: Update the 'rating' column in the 'reviews' collection.
+    - name: review_date
+      type: update_column_reviews_review_date
+      description: Update the 'review_date' column in the 'reviews' collection.
+    - name: review_id
+      type: update_column_reviews_review_id
+      description: Update the 'review_id' column in the 'reviews' collection.
+    - name: user_id
+      type: update_column_reviews_user_id
+      description: Update the 'user_id' column in the 'reviews' collection.
+  graphql:
+    typeName: update_reviews_by_review_id_update_columns
+    inputTypeName: update_reviews_by_review_id_update_columns_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_reviews_by_review_id_update_columns
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_reviews_by_review_id_update_columns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - comment
+          - embedding
+          - product_id
+          - rating
+          - review_date
+          - review_id
+          - user_id
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_reviews_by_review_id_response
+  description: Responses from the 'update_reviews_by_review_id' procedure
+  fields:
+    - name: affected_rows
+      type: int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[reviews!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: update_reviews_by_review_id_response
+    inputTypeName: update_reviews_by_review_id_response_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_reviews_by_review_id_response
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_reviews_by_review_id_response
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affected_rows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: update_reviews_by_review_id
+  outputType: update_reviews_by_review_id_response!
+  arguments:
+    - name: key_review_id
+      type: int4!
+    - name: post_check
+      type: reviews_bool_exp
+      description: Update permission post-condition predicate over the 'reviews' collection
+    - name: pre_check
+      type: reviews_bool_exp
+      description: Update permission pre-condition predicate over the 'reviews' collection
+    - name: update_columns
+      type: update_reviews_by_review_id_update_columns!
+  source:
+    dataConnectorName: mypostgres
+    dataConnectorCommand:
+      procedure: update_reviews_by_review_id
+  graphql:
+    rootFieldName: update_reviews_by_review_id
+    rootFieldKind: Mutation
+  description: Update any row on the 'reviews' collection using the 'review_id' key
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: update_reviews_by_review_id
+  permissions:
+    - role: admin
+      allowExecution: true
+

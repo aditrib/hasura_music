@@ -1,0 +1,283 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_users_created_at
+  description: Update the 'created_at' column in the 'users' collection
+  fields:
+    - name: _set
+      type: timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_users_created_at
+    inputTypeName: update_column_users_created_at_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_users_created_at
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_users_created_at
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_users_email
+  description: Update the 'email' column in the 'users' collection
+  fields:
+    - name: _set
+      type: varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_users_email
+    inputTypeName: update_column_users_email_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_users_email
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_users_email
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_users_first_name
+  description: Update the 'first_name' column in the 'users' collection
+  fields:
+    - name: _set
+      type: varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_users_first_name
+    inputTypeName: update_column_users_first_name_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_users_first_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_users_first_name
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_users_last_name
+  description: Update the 'last_name' column in the 'users' collection
+  fields:
+    - name: _set
+      type: varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_users_last_name
+    inputTypeName: update_column_users_last_name_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_users_last_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_users_last_name
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_users_password
+  description: Update the 'password' column in the 'users' collection
+  fields:
+    - name: _set
+      type: varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_users_password
+    inputTypeName: update_column_users_password_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_users_password
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_users_password
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_users_user_id
+  description: Update the 'user_id' column in the 'users' collection
+  fields:
+    - name: _set
+      type: int4!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_users_user_id
+    inputTypeName: update_column_users_user_id_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_users_user_id
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_users_user_id
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_users_by_email_update_columns
+  description: Update the columns of the 'users' collection
+  fields:
+    - name: created_at
+      type: update_column_users_created_at
+      description: Update the 'created_at' column in the 'users' collection.
+    - name: email
+      type: update_column_users_email
+      description: Update the 'email' column in the 'users' collection.
+    - name: first_name
+      type: update_column_users_first_name
+      description: Update the 'first_name' column in the 'users' collection.
+    - name: last_name
+      type: update_column_users_last_name
+      description: Update the 'last_name' column in the 'users' collection.
+    - name: password
+      type: update_column_users_password
+      description: Update the 'password' column in the 'users' collection.
+    - name: user_id
+      type: update_column_users_user_id
+      description: Update the 'user_id' column in the 'users' collection.
+  graphql:
+    typeName: update_users_by_email_update_columns
+    inputTypeName: update_users_by_email_update_columns_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_users_by_email_update_columns
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_users_by_email_update_columns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - created_at
+          - email
+          - first_name
+          - last_name
+          - password
+          - user_id
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_users_by_email_response
+  description: Responses from the 'update_users_by_email' procedure
+  fields:
+    - name: affected_rows
+      type: int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[users!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: update_users_by_email_response
+    inputTypeName: update_users_by_email_response_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_users_by_email_response
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_users_by_email_response
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affected_rows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: update_users_by_email
+  outputType: update_users_by_email_response!
+  arguments:
+    - name: key_email
+      type: varchar!
+    - name: post_check
+      type: users_bool_exp
+      description: Update permission post-condition predicate over the 'users' collection
+    - name: pre_check
+      type: users_bool_exp
+      description: Update permission pre-condition predicate over the 'users' collection
+    - name: update_columns
+      type: update_users_by_email_update_columns!
+  source:
+    dataConnectorName: mypostgres
+    dataConnectorCommand:
+      procedure: update_users_by_email
+  graphql:
+    rootFieldName: update_users_by_email
+    rootFieldKind: Mutation
+  description: Update any row on the 'users' collection using the 'email' key
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: update_users_by_email
+  permissions:
+    - role: admin
+      allowExecution: true
+

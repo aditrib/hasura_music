@@ -1,0 +1,699 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_acousticness
+  description: Update the 'acousticness' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: float8!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_acousticness
+    inputTypeName: update_column_tracks_acousticness_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_acousticness
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_acousticness
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_album_name
+  description: Update the 'album_name' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: text!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_album_name
+    inputTypeName: update_column_tracks_album_name_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_album_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_album_name
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_artists
+  description: Update the 'artists' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: text!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_artists
+    inputTypeName: update_column_tracks_artists_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_artists
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_artists
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_danceability
+  description: Update the 'danceability' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: float8!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_danceability
+    inputTypeName: update_column_tracks_danceability_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_danceability
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_danceability
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_duration_ms
+  description: Update the 'duration_ms' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: int4!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_duration_ms
+    inputTypeName: update_column_tracks_duration_ms_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_duration_ms
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_duration_ms
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_energy
+  description: Update the 'energy' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: float8!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_energy
+    inputTypeName: update_column_tracks_energy_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_energy
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_energy
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_explicit
+  description: Update the 'explicit' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: bool!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_explicit
+    inputTypeName: update_column_tracks_explicit_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_explicit
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_explicit
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_instrumentalness
+  description: Update the 'instrumentalness' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: float8!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_instrumentalness
+    inputTypeName: update_column_tracks_instrumentalness_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_instrumentalness
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_instrumentalness
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_liveness
+  description: Update the 'liveness' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: float8!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_liveness
+    inputTypeName: update_column_tracks_liveness_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_liveness
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_liveness
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_loudness
+  description: Update the 'loudness' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: float8!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_loudness
+    inputTypeName: update_column_tracks_loudness_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_loudness
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_loudness
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_mode
+  description: Update the 'mode' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: int4!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_mode
+    inputTypeName: update_column_tracks_mode_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_mode
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_mode
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_popularity
+  description: Update the 'popularity' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: int4!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_popularity
+    inputTypeName: update_column_tracks_popularity_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_popularity
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_popularity
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_speechiness
+  description: Update the 'speechiness' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: float8!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_speechiness
+    inputTypeName: update_column_tracks_speechiness_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_speechiness
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_speechiness
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_tempo
+  description: Update the 'tempo' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: float8!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_tempo
+    inputTypeName: update_column_tracks_tempo_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_tempo
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_tempo
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_time_signature
+  description: Update the 'time_signature' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: int4!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_time_signature
+    inputTypeName: update_column_tracks_time_signature_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_time_signature
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_time_signature
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_track_genre
+  description: Update the 'track_genre' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_track_genre
+    inputTypeName: update_column_tracks_track_genre_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_track_genre
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_track_genre
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_track_id
+  description: Update the 'track_id' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_track_id
+    inputTypeName: update_column_tracks_track_id_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_track_id
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_track_id
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_track_name
+  description: Update the 'track_name' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: text!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_track_name
+    inputTypeName: update_column_tracks_track_name_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_track_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_track_name
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_column_tracks_valence
+  description: Update the 'valence' column in the 'tracks' collection
+  fields:
+    - name: _set
+      type: float8!
+      description: Set the column to this value
+  graphql:
+    typeName: update_column_tracks_valence
+    inputTypeName: update_column_tracks_valence_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_column_tracks_valence
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_column_tracks_valence
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - _set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_tracks_by_track_id_update_columns
+  description: Update the columns of the 'tracks' collection
+  fields:
+    - name: acousticness
+      type: update_column_tracks_acousticness
+      description: Update the 'acousticness' column in the 'tracks' collection.
+    - name: album_name
+      type: update_column_tracks_album_name
+      description: Update the 'album_name' column in the 'tracks' collection.
+    - name: artists
+      type: update_column_tracks_artists
+      description: Update the 'artists' column in the 'tracks' collection.
+    - name: danceability
+      type: update_column_tracks_danceability
+      description: Update the 'danceability' column in the 'tracks' collection.
+    - name: duration_ms
+      type: update_column_tracks_duration_ms
+      description: Update the 'duration_ms' column in the 'tracks' collection.
+    - name: energy
+      type: update_column_tracks_energy
+      description: Update the 'energy' column in the 'tracks' collection.
+    - name: explicit
+      type: update_column_tracks_explicit
+      description: Update the 'explicit' column in the 'tracks' collection.
+    - name: instrumentalness
+      type: update_column_tracks_instrumentalness
+      description: Update the 'instrumentalness' column in the 'tracks' collection.
+    - name: liveness
+      type: update_column_tracks_liveness
+      description: Update the 'liveness' column in the 'tracks' collection.
+    - name: loudness
+      type: update_column_tracks_loudness
+      description: Update the 'loudness' column in the 'tracks' collection.
+    - name: mode
+      type: update_column_tracks_mode
+      description: Update the 'mode' column in the 'tracks' collection.
+    - name: popularity
+      type: update_column_tracks_popularity
+      description: Update the 'popularity' column in the 'tracks' collection.
+    - name: speechiness
+      type: update_column_tracks_speechiness
+      description: Update the 'speechiness' column in the 'tracks' collection.
+    - name: tempo
+      type: update_column_tracks_tempo
+      description: Update the 'tempo' column in the 'tracks' collection.
+    - name: time_signature
+      type: update_column_tracks_time_signature
+      description: Update the 'time_signature' column in the 'tracks' collection.
+    - name: track_genre
+      type: update_column_tracks_track_genre
+      description: Update the 'track_genre' column in the 'tracks' collection.
+    - name: track_id
+      type: update_column_tracks_track_id
+      description: Update the 'track_id' column in the 'tracks' collection.
+    - name: track_name
+      type: update_column_tracks_track_name
+      description: Update the 'track_name' column in the 'tracks' collection.
+    - name: valence
+      type: update_column_tracks_valence
+      description: Update the 'valence' column in the 'tracks' collection.
+  graphql:
+    typeName: update_tracks_by_track_id_update_columns
+    inputTypeName: update_tracks_by_track_id_update_columns_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_tracks_by_track_id_update_columns
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_tracks_by_track_id_update_columns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - acousticness
+          - album_name
+          - artists
+          - danceability
+          - duration_ms
+          - energy
+          - explicit
+          - instrumentalness
+          - liveness
+          - loudness
+          - mode
+          - popularity
+          - speechiness
+          - tempo
+          - time_signature
+          - track_genre
+          - track_id
+          - track_name
+          - valence
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: update_tracks_by_track_id_response
+  description: Responses from the 'update_tracks_by_track_id' procedure
+  fields:
+    - name: affected_rows
+      type: int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[tracks!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: update_tracks_by_track_id_response
+    inputTypeName: update_tracks_by_track_id_response_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: mypostgres
+      dataConnectorObjectType: update_tracks_by_track_id_response
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: update_tracks_by_track_id_response
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affected_rows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: update_tracks_by_track_id
+  outputType: update_tracks_by_track_id_response!
+  arguments:
+    - name: key_track_id
+      type: varchar!
+    - name: post_check
+      type: tracks_bool_exp
+      description: Update permission post-condition predicate over the 'tracks' collection
+    - name: pre_check
+      type: tracks_bool_exp
+      description: Update permission pre-condition predicate over the 'tracks' collection
+    - name: update_columns
+      type: update_tracks_by_track_id_update_columns!
+  source:
+    dataConnectorName: mypostgres
+    dataConnectorCommand:
+      procedure: update_tracks_by_track_id
+  graphql:
+    rootFieldName: update_tracks_by_track_id
+    rootFieldKind: Mutation
+  description: Update any row on the 'tracks' collection using the 'track_id' key
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: update_tracks_by_track_id
+  permissions:
+    - role: admin
+      allowExecution: true
+
