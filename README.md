@@ -11,3 +11,5 @@ Two types of connectors were used:
 You can clone this repository and add additional connectors to extend the capabilities of this project by following the PromptQL docs.
 
 Here's a video showcasing the types of questions you can ask: https://drive.google.com/file/d/1yhjeNFospelmc2KF5I9tAdZPdwJS2NQL/view?usp=sharing
+
+NOTE: Make sure you add your OPENAI_API_KEY to a .env file, since the functions.ts file in app/connector/typescript requires this key to generate movie recommendations.
