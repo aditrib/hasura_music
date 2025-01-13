@@ -1,0 +1,52 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: recommendMovie_output
+  fields:
+    - name: recommendation
+      type: String
+  graphql:
+    typeName: recommendMovie_output
+    inputTypeName: recommendMovie_output_input
+  dataConnectorTypeMapping:
+    - dataConnectorName: typescript
+      dataConnectorObjectType: recommendMovie_output
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: recommendMovie_output
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - recommendation
+
+---
+kind: Command
+version: v1
+definition:
+  name: recommendMovie
+  outputType: recommendMovie_output!
+  arguments:
+    - name: input
+      type: String
+  source:
+    dataConnectorName: typescript
+    dataConnectorCommand:
+      procedure: recommendMovie
+  graphql:
+    rootFieldName: recommendMovie
+    rootFieldKind: Mutation
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: recommendMovie
+  permissions:
+    - role: admin
+      allowExecution: true
+

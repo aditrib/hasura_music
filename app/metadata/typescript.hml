@@ -1,0 +1,54 @@
+kind: DataConnectorLink
+version: v1
+definition:
+  name: typescript
+  url:
+    readWriteUrls:
+      read:
+        valueFromEnv: APP_TYPESCRIPT_READ_URL
+      write:
+        valueFromEnv: APP_TYPESCRIPT_WRITE_URL
+  headers:
+    Authorization:
+      valueFromEnv: APP_TYPESCRIPT_AUTHORIZATION_HEADER
+  schema:
+    version: v0.1
+    schema:
+      scalar_types:
+        String:
+          representation:
+            type: string
+          aggregate_functions: {}
+          comparison_operators:
+            _eq:
+              type: equal
+      object_types:
+        recommendMovie_output:
+          fields:
+            recommendation:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+      collections: []
+      functions: []
+      procedures:
+        - name: recommendMovie
+          arguments:
+            input:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+          result_type:
+            type: named
+            name: recommendMovie_output
+    capabilities:
+      version: 0.1.6
+      capabilities:
+        query:
+          variables: {}
+          nested_fields: {}
+        mutation: {}
