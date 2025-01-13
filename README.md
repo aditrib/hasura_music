@@ -1,4 +1,4 @@
-This is a project that allows you to analyze music preferences, including top artists, tracks, and moods represented.
+This is a project that allows you to analyze your music preferences, including top artists, tracks, and moods represented.
 
 Movie recommendations are generated for you based on your music taste, including top tracks and the vibe of your playlist.
 
