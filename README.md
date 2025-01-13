@@ -1,6 +1,6 @@
 This is a project that allows you to analyze your music preferences, including top artists, tracks, and moods represented.
 
-Movie recommendations are generated for you based on your music taste, including top tracks and the vibe of your playlist.
+Movie recommendations are generated for you based on an analysis of your music taste, including top tracks and the vibe of your playlist.
 
 This project was created using PromptQL (https://promptql.hasura.io/docs)
 
